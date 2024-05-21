@@ -1,0 +1,71 @@
+﻿
+@model ApkaTa.Models.UserViewModel
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styleLog.css" />
+    <script>
+        function sprawdz(){
+            if( document.getElementById("Login").Value == ""){document.getElementById("PoleId").innerHTML="Podaj Login!"}
+        }
+    </script>
+</head>
+
+    <body>
+	   <div class ="contetn">
+			<div class ="naglowek">
+					
+				</div>
+				
+				<div class ="main">
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post)){
+
+				<div class="Tytul ">
+					<h1> Logowanie </h1>
+				</div>
+                @if (TempData["error"] != null)
+                {
+                    <div class="alert-error">
+                        <strong> Błąd </strong> @TempData["error"]
+                    </div>
+                }
+					<div class="Formularz">
+							<div class="daneTxt">
+                             @Html.TextBoxFor(x =>x.Email, new {@class = "inputDane", @placeholder = "Email", @id="Login", })
+                                @Html.ValidationMessageFor(model => model.Email)
+
+							</div>
+							
+							<div class="daneTxt">
+                                @Html.PasswordFor(x =>x.Password, new {@class = "inputDane", @placeholder = "Hasło"})
+                                @Html.ValidationMessageFor(model => model.Password)
+
+                        <p id="PoleId"> </p>
+                        </div>
+						<div class="Info">
+                            <p>Dołącz do naszego grona? <a asp-action="Rejestruj">Załóż konto</a></p>
+                        </div>
+						</div>
+						<div class="btnRej">
+							<input type="submit" value="Zaloguj!" onfocus="sprawdz()" />
+						</div>
+                        }
+					<div>
+				</div>
+	   </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

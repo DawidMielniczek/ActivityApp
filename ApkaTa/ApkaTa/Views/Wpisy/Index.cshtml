@@ -1,0 +1,65 @@
+﻿@model ApkaTa.Models.UserViewModel
+<html lang="pl">
+
+<head>
+	<link rel="stylesheet" href="/css/Home.css" />
+	<script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div id="container">
+		<div class="banner">
+			<div class="navbar">
+				<li>
+					<h2>Aktywni Fizycznie</h2>
+				</li>
+				<ul>
+					<li>Witaj @Model.Nick  <i class="fa-solid fa-user"></i></li>
+				</ul>
+			</div>
+			<div class="PanelBoczny">
+
+				<ul>
+					<li>
+						<a asp-action="Home">
+							<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+						</a>
+					</li>
+					<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+					<li><a asp-action="Aktywność"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+					<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+					<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+					<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+					<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+				</ul>
+
+			</div>
+			<div class="content">
+			<div class="nadch">
+					<a asp-action="DodajPost">
+					<h1>Dodaj Wpis Aktywnosciowy </h1>
+						<img src="../../Images//pencil.svg" height="60%" width="80%" style="margin-top:15%;" />
+				</a>
+			</div>
+			<div class="History">
+					<a asp-action="TwojeWpisy">
+					<h1>Twoje Wpisy </h1>
+						<img src="../../Images/blog.svg" height="80%" width="80%" style="margin-top:15%;" />
+				</a>
+			</div>
+			<div class="GetLast">
+					<a asp-action="WpisyUsers">
+						<h1> Dostępne Wpisy </h1>
+					<img src="../../Images/search.svg" height="60%" width="80%" style="margin-top:15%;" />
+				</a>
+
+			</div>
+		</div>
+			
+
+		
+	</div>
+
+</body>
+<html>

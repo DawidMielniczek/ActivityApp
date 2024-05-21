@@ -1,0 +1,68 @@
+﻿@model ApkaTa.Models.UserViewModel
+<html>
+    <head>
+    <link rel="stylesheet" href="/css/styleRej.css" />
+    </head>
+<body>
+<div class="main">
+    <div class="Tytul">
+        <h1>Rejestracja</h1>
+
+    </div>
+    
+            @using (Html.BeginForm("Index", "Rejestracja", FormMethod.Post))
+            {
+            @if (TempData["succes"] != null)
+            {
+                <div class="alert">
+                    <strong> Sukces</strong> @TempData["succes"]
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert-error">
+                    <strong> Bład</strong> @TempData["Error"]
+                </div>
+            }
+        <div class="Formularz">
+            <div class="daneTxt">
+                <input type="text" class="inputDane" placeholder="Email" asp-for="Email" />
+                    @Html.ValidationMessageFor(model => model.Email)
+
+            </div>
+
+
+            <div class="daneTxt">
+                <input type="text" class="inputDane" placeholder="Nick" asp-for="Nick" />
+                @Html.ValidationMessageFor(model => model.Nick)
+
+            </div>
+
+
+            <div class="daneTxt">
+                <input type="password" id="pass1" class="inputDane" placeholder="Hasło" asp-for="Password"/>
+                 @Html.ValidationMessageFor(model => model.Password)
+
+            </div>
+
+
+            <div class="daneTxt">
+                <input type="password" class="inputDane" placeholder="Powtórz Hasło" asp-for="Bmi" />
+                 @Html.ValidationMessageFor(model => model.Password)
+
+            </div>
+
+            <div class="Info">
+                <p>Posiadasz już konto? <a asp-action="Loguj">Zaloguj</a></p>
+            </div>
+
+        </div>
+        <div class="btnRej">
+            <input type="submit" value="Zajerestruj się!" />
+        </div>
+        }
+    
+</div>
+
+    </body>
+</html>

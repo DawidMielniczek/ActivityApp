@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\active1.svg" />
+    <Content Remove="wwwroot\Images\bmi.svg" />
+    <Content Remove="wwwroot\Images\home.svg" />
+    <Content Remove="wwwroot\Images\info.svg" />
+    <Content Remove="wwwroot\Images\logout.svg" />
+    <Content Remove="wwwroot\Images\profil.svg" />
+    <Content Remove="wwwroot\Images\run.svg" />
+    <Content Remove="wwwroot\Images\settings.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\active1.svg" />
+    <None Include="wwwroot\Images\bmi.svg" />
+    <None Include="wwwroot\Images\home.svg" />
+    <None Include="wwwroot\Images\info.svg" />
+    <None Include="wwwroot\Images\logout.svg" />
+    <None Include="wwwroot\Images\profil.svg" />
+    <None Include="wwwroot\Images\run.svg" />
+    <None Include="wwwroot\Images\settings.svg" />
+  </ItemGroup>
+
+</Project>

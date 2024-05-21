@@ -1,0 +1,94 @@
+﻿@model ApkaTa.Models.PostUser
+<head>
+	<link rel="stylesheet" href="/css/WpisyDetalies.css" />
+	<script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div class="navbar">
+			<li>
+				<h2>Aktywni Fizycznie </h2>
+			</li>
+			<ul>
+				<li>Witaj @ViewBag.Nick  <i class="fa-solid fa-user"></i></li>
+			</ul>
+		</div>
+		<div class="PanelBoczny">
+
+			<ul>
+				<li>
+					<a asp-action="Index">
+						<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+					</a>
+				</li>
+				<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+				<li><a asp-action="Aktywność"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+				<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+				<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+				<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+				<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+			</ul>
+
+		</div>
+		<div class="main">
+			<div class="Profil">
+				<div class="naglowek">
+					<img src="/Images/@Model.Obrazek" width="15%" />
+					<h2> @Model.Nazwa	</h2>
+				</div>
+				<div class="formularz">
+					<div class="daneTxt">
+						<label> Temat </label>
+						<input type="text" class="inputDane" value="@Model.Temat" disabled />
+					</div>
+
+					<div class="OpisTxt">
+						<label> Opis </label>
+						<textarea class="Opis" rows=8; disabled>@Model.Opis </textarea>
+					</div>
+
+					<div class="daneTxt" style="margin-top:2%;">
+						<label style="margin-top:2%;"> Liczba wyświetleń </label>
+						<input type="text" class="inputDane" value="@Model.Wyświetlenia" disabled />
+					</div>
+
+					<div class="daneTxt">
+						<label> Autor </label>
+						<input type="text" class="inputDane" value="@Model.Nick" disabled />
+					</div>
+				</div>
+				<div class="btnRej">
+					@using (Html.BeginForm("Index", "Wpisy", FormMethod.Get)){
+					<input type="submit" value="Wróć!" asp-action="Index" asp-controller="Wpisy" />
+					}
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+	
+
+</body>
+
+
+
+
+
+
+
+
+@*@using (Html.BeginForm("WpisUserUpdate", "Wpisy", FormMethod.Post))
+{
+    <input type="text" class="form-control" asp-for="IdAktywności"/>
+    <input type="text" class="form-control" asp-for="Temat" />
+    <input type="text" class="form-control" asp-for="Opis"  />
+
+}*@

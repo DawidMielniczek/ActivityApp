@@ -1,0 +1,425 @@
+﻿@model List<ApkaTa.Models.PostUser>
+
+<html lang="pl">
+
+<head>
+	<link rel="stylesheet" href="/css/site.css" />
+	<script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+<style>
+body {
+    background-image: url(../Images/back.jpg);
+    background-size: cover;
+	width:100%;
+	height:100%;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+h2 {
+    top: 10px;
+    text-align: center;
+    font-size: 29px;
+    color: black;
+}
+
+.navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0px;
+}
+
+    .navbar li, h2 {
+        font-size: 35px;
+        color: white;
+        padding: 43px;
+    }
+
+.PanelBoczny {
+    outline: none;
+    position: absolute;
+    bottom: auto;
+    height: auto;
+    left: 0;
+    background-color: whitesmoke;
+    width: 130px;
+    overflow: hidden;
+}
+
+a {
+    position: relative;
+    font-size: 14px;
+    display: table;
+    width: 290px;
+    padding: 30px;
+    color: Gray;
+}
+
+.fas {
+    width: 70px;
+    position: relative;
+    height: 40px;
+    top: 14px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.fa-solid {
+    width: 70px;
+    position: relative;
+    height: 40px;
+    top: 14px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.item {
+    top: 15px;
+    font-size: 24px;
+    margin-left: 29px;
+}
+
+a:hover {
+    background-color: lightgray;
+}
+
+.PanelBoczny:hover {
+    width: 280px;
+}
+
+.PanelBoczny ul li {
+    border-bottom: 1px solid rgb(128, 128, 128);
+    border-top: 1px solid rgb(128, 128, 128);
+}
+
+
+#footer {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    /* Height of the footer*/
+    height: 40px;
+    background: grey;
+	clear:both
+}
+
+.content {
+    margin-left: 15%;
+    padding: 30px;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    width: auto;
+    top:10%;
+}
+
+
+.BtnTxt {
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    background: skyblue;
+    position: absolute;
+}
+
+
+.btn:hover .BtnTxt {
+    width: 100%;
+    border: none;
+
+}
+.h1{
+    text-align:center;
+}
+
+.input
+{
+    width:500px;
+    height:50px;
+}
+
+.content .NadWyd table{
+text-align:center;
+width:95%;
+height:20%;}
+
+.content .NadWyd  table a{
+width:95%;
+opacity: 0.5;
+}
+
+.content .historiaWyd table{
+width:95%;
+height:20%;
+}
+.content .pogodaWyd table{
+width:95%;
+height:15%;
+text-align:center;
+}
+.main {
+    position: absolute;
+    right:1%;
+    left: 12%;
+    padding: 3%;
+	height:100%;
+	width:auto;
+    border:3px blue;
+	opacity:0.7;
+    font-weight:bold;
+}
+.Tytul {
+	margin-top:15%;
+    height: 5%;
+    font-size: 80%;
+    text-align: center;
+    margin-bottom:30px;
+}
+
+.inputDane{
+   
+}
+.Formularz{
+	margin-top:10%;
+    display:absolute;
+}
+
+.inputDane{
+    width:100%;
+    height:45px;
+    margin-top :20px;
+	padding:5px;
+    
+}
+input:focus
+{
+    border: 1px solid skyblue;
+    box-shadow: 0 0 3px #1670BE;
+    outline-offset: 0px;
+    outline: none;
+}
+ 
+.main .btnRej input{
+    width:50%;
+	float:right;
+    height:50px;
+    background-color:skyblue;
+    border:0px;
+	margin-top:10px;
+}
+.main .Formularz .Info p{
+    text-align:center;
+    font-family:Arial;
+    font-size:14px;
+}
+
+
+.btn {
+     width:75%;
+    height:50px;
+    
+    text-align:center;
+    border-radius:35px;
+    padding: 6% 0;
+    margin: 5% 2%;
+    font-weight:bold;
+    background-color:lightblue;
+    color: White;
+    cursor:pointer;
+    position:relative;
+    border-color:skyblue;
+   
+}
+
+.headerSearch{
+    height:8%;
+}
+
+.headerSearch form {
+padding:1%;
+height:100%;
+width:58%;
+}
+
+
+.headerSearch  select{
+width:70%;
+height:100%;
+}
+.headerSearch button{
+	height:100%;
+	float:right;
+    width: 28%;
+    border-radius: 25px;
+    background: skyblue;
+	border-color:skyblue;
+	color:white;
+}
+
+.gridView{
+height:80%;
+text-align:center;
+
+}
+.span{
+font-size:22px;
+}
+
+ .alert {
+            background-color: lightgreen;
+            height: 50px;
+            text-align: center;
+            color: white;
+            border-radius: 10px;
+            display: block;
+            line-height: 50px;
+            font-size: large;
+            width:95;
+        }
+.alert-error {
+    background-color: lightcoral;
+    height: 50px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    line-height: 50px;
+    font-size: large;
+}
+
+        .BtnPrzeg {
+            width: 35%;
+            background: skyblue;
+            border-radius: 25px;
+            height: auto;
+            padding: 30px;
+            margin-left: 15%;
+            color: black;
+            font-weight: 900;
+        }
+
+        .tableView {
+            width: 100%;
+            color: black;
+            font-weight: 900;
+            font-size: x-large;
+            background-color: whitesmoke;
+            opacity: 0.9;
+        }
+       
+</style>
+</head>
+<body>
+
+	<div id="container">
+		
+			<div class="navbar">
+				<li>
+					<h2>Aktywni Fizycznie </h2>
+				</li>
+				<ul>
+					<li>Witaj @ViewBag.Nick  <i class="fa-solid fa-user"></i></li>
+				</ul>
+			</div>
+			<div class="PanelBoczny">
+
+				<ul>
+					<li>
+						<a asp-action="Index">
+							<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+						</a>
+					</li>
+					<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+					<li><a asp-action="Aktywność"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+					<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+					<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+					<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+					<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+				</ul>
+
+			</div>
+			<div class="main">
+             
+				<div class="headerSearch">
+                  @using (Html.BeginForm("TwojeWpisy","Wpisy", FormMethod.Get)){
+
+                @Html.DropDownList("NazwaAktywnosc",(SelectList)ViewBag.NazwaAktywnosci,"Wybierz Aktywność") 					
+                <button type="submit" asp-action="TwojeWpisy" asp-controller="Wpisy" > Wyszukaj </button>
+                  }
+            </div>
+            @if (TempData["succes"] !=null){
+                <div class="alert">
+                    <strong> Sukces</strong> @TempData["succes"]
+                </div>
+            }
+            @if (TempData["error"] != null)
+            {
+                <div class="alert">
+                    <strong> Bład</strong> @TempData["error"]
+                </div>
+            }
+				<div class="gridView" >
+					<table class ="tableView" style="width:95%;">
+							<thead>
+								<tr style="width:100%;"  >
+									<td> </td>
+									<td> Nazwa </td>
+									<td> Temat </td>
+									<td> Autor </td>
+									<td> Wyświetlenia </td>
+									<td></td>
+								</tr>
+							</thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            @foreach (var posts in Model)
+                            {
+                                <tr>
+                                    <td width="150"><img src="../../Images/@posts.Obrazek" width="150" height="150" /></td>
+                                    <td style="margin-top:50%"><center>@posts.Nazwa</center></td>
+                                    <td>@posts.Temat</td>
+                                    <td>@posts.Nick</td>
+                                    <td>@posts.Wyświetlenia</td>
+                                    <td>
+                                        <td>
+                                            <div class="Przyciski">
+                                                <a asp-action="WpisUserDetalies" asp-route-id="@posts.IdPost" class="btn btn-light"> Wyświetl</a>
+                                                <a asp-action="WpisUserUpdate" asp-controller="Wpisy" asp-route-id="@posts.IdPost" class=" btn btn-light"> Edytuj </a>
+                                            </div>
+                                        </td>
+                                </tr>
+
+                            }
+                        }
+                    </tbody>
+					</table>
+                    @if(Model == null){
+                    <h1 style="color:white; margin-top:10%;">Nie dodałeś żadnego wpisu!</h1>
+                    }
+				</div>
+			</div>
+
+	</div>
+		
+
+</body>
+</html>
+
+
+
+
+
+
+
+                        

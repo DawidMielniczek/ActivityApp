@@ -1,0 +1,154 @@
+﻿@model ApkaTa.Models.UserViewModel
+
+
+
+<head>
+	<link rel="stylesheet" href="/css/Ustawienia.css" />
+	<script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div id="container">
+		<div class="banner">
+			<div class="navbar">
+				<li>
+					<h2>Aktywni Fizycznie </h2>
+				</li>
+				<ul>
+					<li>Witaj @ViewBag.Nick<i class="fa-solid fa-user"></i></li>
+				</ul>
+			</div>
+			<div class="PanelBoczny">
+
+				<ul>
+					<li>
+						<a asp-action="Home">
+							<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+						</a>
+					</li>
+					<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+					<li><a asp-action="Aktywność"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+					<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+					<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+					<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+					<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+				</ul>
+
+			</div>
+			<div class="main">
+				<div class="Profil">
+					<div class="contetn">
+						<div class="naglowek">
+							<div class="Tytul">
+								<h1> Zaktualizuj dane: </h1>
+							</div>
+							@using (Html.BeginForm("Profil", "Konto", FormMethod.Post)){
+							@if (TempData["AlertMessage"] != null){
+								<div class="alert">
+									<strong> Sukces</strong> @TempData["AlertMessage"]
+								</div>
+							}
+								@if (TempData["Error"] != null)
+								{
+									<div class="alert-error">
+										<strong> Bład</strong> @TempData["Error"]
+									</div>
+								}
+							<div class="Formularz">
+								<div class="daneTxt">
+										<label> Nick </label>
+									<input type="text" class="inputDane" value="@Model.Nick" asp-for="Nick" />
+									<div class="validate">
+									@Html.ValidationMessageFor(model => model.Nick)
+									</div>
+								</div>
+
+								<div class="daneTxt">
+									<label> Data Urodzenia </label>
+									<input type="date" class="inputDane"  placeholder="@Model.RokUrodzenia" asp-for="RokUrodzenia" max="2010-01-01" min="1950-01-01" />
+									@Html.ValidationMessageFor(model => model.RokUrodzenia)
+
+								</div>
+
+								<div class="daneTxt">
+										<label> Data Urodzenia </label>
+
+									<select class="inputDane" asp-for="Płeć">
+										<option value=" ">Wybierz płeć </option>
+									<option value="Kobieta" >Kobieta</option>
+										<option value="Mężczyzna">Mężczyzna</option>
+									</select>
+								</div>
+
+								<div class="daneTxt">
+										<label>Waga </label>
+										@if (Model.Waga == 0)
+										{
+											<input type="number" class="inputDane" asp-for="Waga" placeholder="Ustaw Wage" />
+											@Html.ValidationMessageFor(model => model.Waga)
+
+										}
+										else
+										{
+											<input type="number" class="inputDane" asp-for="Waga" value="@Model.Waga" />
+											@Html.ValidationMessageFor(model => model.Waga)
+										}
+								</div>
+
+								<div class="daneTxt">
+									@if(Model.Wzrost == 0){
+											<label> Wzrost</label>
+
+										<input type="number" class="inputDane" asp-for="Wzrost" placeholder="Ustaw Wzrost" />
+										@Html.ValidationMessageFor(model => model.Wzrost)
+
+									}else{
+											<label> Wzrost</label>
+										<input type="number" class="inputDane" asp-for="Wzrost" value="@Model.Wzrost" />
+										@Html.ValidationMessageFor(model => model.Wzrost)
+
+									}	
+									<input type="hidden" asp-for="Email" value=@Model.Email />
+									<input type="hidden" asp-for="Password" value=@Model.Password />
+									<input type="hidden" asp-for="Bmi" value=@Model.Bmi />
+											
+								</div>
+							</div>
+							<div class="btnRej">
+								<input type="submit" value="Edytuj!" />
+							</div>
+							}
+						</div>
+					</div>
+
+				</div>
+
+				<div class="ProfilChange">
+
+					<div class="picture">
+						@if(Model.Płeć == "Kobieta"){
+						<center><img src="../../Images/woman.png" width="60%"> </center>
+						}
+						@if (Model.Płeć == "Mężczyzna")
+						{
+							<center><img src="../../Images/user.png" width="50%"> </center>
+						}
+						@if (Model.Płeć == "")
+						{
+							<center><img src="../../Images/user.svg" width="30%"> </center>
+						}
+						<h1>  @ViewBag.Nick </h1>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		
+	</div>
+
+</body>
+</html>

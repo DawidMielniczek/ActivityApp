@@ -1,0 +1,112 @@
+﻿Body {
+    margin: 0;
+    background-image: url(../Images/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: whitesmoke;
+    transform: translate(-50%,-50%);
+    padding: 50px;
+    width: 26%;
+    border: 3px blue;
+    opacity: 0.7;
+}
+
+.Tytul {
+    height: 3vw;
+    font-size: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inputDane {
+}
+
+.Formularz {
+    margin-top: 10%;
+    display: absolute;
+}
+
+.inputDane {
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    font-size:100%;
+}
+
+input:focus {
+    border: 1px solid skyblue;
+    box-shadow: 0 0 3px #1670BE;
+    outline-offset: 0px;
+    outline: none;
+}
+
+.main .btnRej input {
+    width: 100%;
+    height: 50px;
+    background-color: skyblue;
+    border: 0px;
+    margin-top: 10px;
+}
+
+.main .Formularz .Info p {
+    text-align: center;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+img {
+    text-align: center;
+}
+
+.contetn .naglowek h1 {
+    text-align: center;
+    margin-top: 5%;
+    color: whitesmoke;
+}
+
+.contetn .icon img {
+    margin-top: 20px;
+    color: white;
+}
+.alert {
+    background-color: lightgreen;
+    height: 50px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    line-height: 50px;
+    font-size: large;
+}
+
+.alert-error {
+    background-color: lightcoral;
+    height: 50px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    line-height: 50px;
+    font-size: large;
+}
+
+.field-validation-error {
+    color: red;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+.validate {
+    margin-bottom: 5px;
+    border-radius: 20px;
+}

@@ -1,0 +1,53 @@
+﻿@model ApkaTa.Models.UserViewModel
+<html lang="pl">
+
+<head>
+	<link rel="stylesheet" href="/css/site.css" />
+	    <script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="banner">
+				<div class="navbar">
+					<li>
+						<h2>Aktywni Fizycznie</h2>
+					</li>
+					<ul>
+						<li>Witaj @Model.Nick  <i class="fa-solid fa-user"></i></li>
+					</ul>
+				</div>
+				<div class="PanelBoczny">
+
+					<ul>
+						<li>
+							<a asp-action="Index">
+								<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+							</a>
+						</li>
+						<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+						<li><a asp-action="Aktywność"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+						<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+						<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+						<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+						<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+					</ul>
+
+				</div>
+				<div class="content">
+
+					y Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker
+
+
+				</div>
+			</div>
+
+			<div id="footer">
+				This is a footer.
+				This stays at the bottom of the page.
+			</div>
+		</div>
+
+	</body>
+	<html>

@@ -1,0 +1,136 @@
+﻿@model ApkaTa.Models.AktywnośćUser
+
+<link rel="stylesheet" href="/css/Dodawanie.css" />
+<script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+
+
+<body>
+
+	<div id="container">
+
+		<div class="navbar">
+			<li>
+				<h2>Aktywni Fizycznie </h2>
+			</li>
+			<ul>
+				<li>Witaj @ViewBag.Nick  <i class="fa-solid fa-user"></i></li>
+			</ul>
+		</div>
+		<div class="PanelBoczny">
+
+			<ul>
+				<li>
+					<a asp-action="Index">
+						<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+					</a>
+				</li>
+				<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+				<li><a asp-action="Index"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+				<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+				<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+				<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+				<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+			</ul>
+
+		</div>
+		<div class="main">
+			<div class="Profil">
+				<div class="naglowek">
+					<img src="../Images/active1.svg" width="30%" />
+					<h2> Dodaj Wydarzenie Aktywnościowy	</h2>
+				</div>
+
+				 @using (Html.BeginForm("DodajAktywność", "Aktywność", FormMethod.Post)){
+					 @if (TempData["AlertMessage"] != null){
+								<div class="alert">
+									<strong> Sukces</strong> @TempData["AlertMessage"]
+								</div>
+							}
+								@if (TempData["error"] != null)
+								{
+									<div class="alert-error">
+										<strong> Bład</strong> @TempData["Error"]
+									</div>
+								}
+				<div class="formularz">
+
+					<div class="daneTxt">
+						<label> Nazwa Aktywności </label>
+							@Html.DropDownList("NazwaAktywnosc",(SelectList)ViewBag.NazwaAktywnosci,"Wybierz Aktywność", new {@class = "inputDane"})
+							@Html.ValidationMessageFor(model => model.IdAktywności)
+
+					</div>
+
+					<div class="daneTxt">
+						<div class="Godziny">
+							<label> Godzina Od </label>
+							<input type="time" class="inputDane" asp-for="GodzinaOd" />
+								@Html.ValidationMessageFor(model => model.GodzinaOd)
+
+						</div>
+						<div class="GodzinyDo">
+							<label> Godzina Od </label>
+							<input type="time" class="inputDane" asp-for="GodzinaDo"  />
+								@Html.ValidationMessageFor(model => model.GodzinaDo)
+
+						</div>
+					</div>
+				</div>
+				<div class="daneTxt" style="clear:both;">
+					<label> Data </label>
+						<input type="date" class="inputDane" asp-for="Data" min="@DateTime.Now.Date.ToString("yyyy-MM-dd")" max="@DateTime.Now.Date.AddDays(13).ToString("yyyy-MM-dd")" />
+						  @Html.ValidationMessageFor(model => model.Data)
+
+				</div>
+				<div class="daneTxt" style="clear:both;">
+					<label> Miejsce </label>
+					<input type="text" class="inputDane" asp-for="MiejsceDoc" />
+						@Html.ValidationMessageFor(model => model.MiejsceDoc)
+
+				</div>
+				<div class="daneTxt" style="clear:both;">
+					<label> Ilość miejsc </label>
+					<input type="number" class="inputDane" asp-for="IlośćMiejsc" />
+						@Html.ValidationMessageFor(model => model.IlośćMiejsc)
+
+				</div>
+				<div class="OpisTxt">
+					<label> Opis </label>
+					<textarea class="Opis" rows=4  asp-for="Opis" > </textarea>
+						@Html.ValidationMessageFor(model => model.Opis)
+
+				</div>
+
+				<div class="btnRej">
+					<input type="submit" value="Dodaj!" />
+				</div>
+				}
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	
+	
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+

@@ -1,0 +1,144 @@
+﻿@model ApkaTa.Models.PostUser
+<head>
+	<link rel="stylesheet" href="/css/WpisyDetalies.css" />
+	<script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+
+	<div id="container">
+
+		<div class="navbar">
+			<li>
+				<h2>Aktywni Fizycznie </h2>
+			</li>
+			<ul>
+				<li>Witaj @ViewBag.Nick  <i class="fa-solid fa-user"></i></li>
+			</ul>
+		</div>
+		<div class="PanelBoczny">
+
+			<ul>
+				<li>
+					<a asp-action="Index">
+						<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+					</a>
+				</li>
+				<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+				<li><a asp-action="Aktywność"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+				<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+				<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+				<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+				<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+			</ul>
+
+		</div>
+		<div class="main">
+			<div class="Profil">
+				<div class="naglowek">
+					<img src="/Images/@Model.Obrazek" width="30%" />
+					<h2> Twój Wpis Aktywnościowy	</h2>
+				</div>
+			 @using (Html.BeginForm(FormMethod.Post)){
+					@if (TempData["succes"] != null)
+					{
+						<div class="alert">
+							<strong> Sukces</strong> @TempData["AlertMessage"]
+						</div>
+					}
+					@if (TempData["error"] != null)
+					{
+						<div class="alert-error">
+							<strong> Bład</strong> @TempData["Error"]
+						</div>
+					}
+				<div class="formularz">
+						<input type="text" asp-for="Wyświetlenia" hidden />
+						<input type="hidden" asp-for="DataWpisu" />
+						<input type="hidden" asp-for="IdAktywności" />
+
+					<div class="daneTxt">
+						<label> Nazwa Aktywności </label>
+							@Html.DropDownList("NazwaAktywnosc",(SelectList)ViewBag.NazwaAktywnosci,Model.Nazwa, new {@class = "inputDane"})
+
+					</div>
+
+					<div class="daneTxt">
+						<label> Temat </label>
+						<input type="text" class="inputDane" asp-for="Temat" value="@Model.Temat"  />
+							@Html.ValidationMessageFor(model => model.Temat)
+
+					</div>
+
+					<div class="OpisTxt">
+						<label> Treść </label>
+						<textarea class="Opis" rows=12 asp-for="Opis">@Model.Opis </textarea>
+						@Html.ValidationMessageFor(model => model.Opis)
+
+					</div>
+
+				</div>
+				<div class="btnRej">
+						<input type="submit" value="Dodaj!" asp-action="WpisUserUpdate" asp-route-id="@Model.IdPost" asp-controller="Wpisy" />
+						<input type="submit" value="Usuń!" asp-action="Delete" asp-route-id="@Model.IdPost" asp-controller="Wpisy" />
+						
+					</div>
+
+				}
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+	
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@using (Html.BeginForm("WpisUserUpdate", "Wpisy", FormMethod.Post))
+{
+    <input type="hidden" asp-for="IdAktywności"  />
+    
+
+    <input type="text" class="form-control" asp-for="Temat" />
+    <input type="text" class="form-control" asp-for="Opis" />
+    <input type="text" asp-for="Wyświetlenia" disabled />
+    <input type="date" asp-for="DataWpisu"  />
+
+
+    <button asp-action="WpisUserUpdate" asp-route-id="@Model.IdPost" asp-controller="Wpisy" class=" btn btn-light"> Edytuj Wpis</button>
+    <button asp-action="Delete"  asp-route-id="@Model.IdPost" asp-controller="Wpisy" class=" btn btn-light">Usuń wpis </button>
+
+
+}*@

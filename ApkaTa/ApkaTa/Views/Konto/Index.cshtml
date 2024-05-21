@@ -1,0 +1,118 @@
+﻿@model ApkaTa.Models.UserViewModel
+<html lang="pl">
+
+<head>
+	<link rel="stylesheet" href="/css/Ustawienia.css" />
+	<script src="https://kit.fontawesome.com/37dde7df60.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div id="container">
+		<div class="banner">
+			<div class="navbar">
+				<li>
+					<h2>Aktywni Fizycznie </h2>
+				</li>
+				<ul>
+					<li>Witaj @ViewBag.Nick  <i class="fa-solid fa-user"></i></li>
+				</ul>
+			</div>
+			<div class="PanelBoczny">
+
+				<ul>
+					<li>
+						<a asp-action="Home">
+							<i class="fa-solid fa-house-user"></i><span class="item">Home Page</span>
+						</a>
+					</li>
+					<li><a asp-action="Profil"><i class="fas fa-user"></i><span class="item">Profil</span></a></li>
+					<li><a asp-action="Aktywność"><i class="fa-solid fa-person-running"></i><span class="item">Aktywność</span></a></li>
+					<li><a asp-action="Ustawienia"><i class="fa-solid fa-gears"></i><span class="item">Ustawienia</span></a></li>
+					<li><a asp-action="Wpisy"><i class="fa-sharp fa-solid fa-blog"></i><span class="item">Wpisy</span></a></li>
+					<li><a asp-action="About"><i class="fa-solid fa-circle-info"></i><span class="item">O nas</span></a></li>
+					<li><a class="Wyloguj" asp-action="Wyloguj"><i class="fa-solid fa-right-from-bracket"></i><span class="item">Wyloguj</span></a></li>
+				</ul>
+
+			</div>
+			<div class="main">
+				<div class="Profil">
+					<div class="contetn">
+						<div class="naglowek">
+							<div class="Tytul">
+								<h1> Zaktualizuj dane: </h1>
+							</div>
+							@using (Html.BeginForm("Index", "Konto", FormMethod.Post)){
+								@if (TempData["succes"] != null)
+								{
+									<div class="alert">
+										<strong> Sukces</strong> @TempData["Error"]
+									</div>
+								}
+								@if (TempData["Error"] != null)
+								{
+									<div class="alert-error">
+										<strong> Błąd! </strong> @TempData["error"]
+									</div>
+								}
+							<div class="Formularz">
+								<div class="daneTxt">
+									<input type="text" class="inputDane" value="@Model.Email" asp-for="Email" />
+									@Html.ValidationMessageFor(model => model.Email)
+
+								</div>
+
+								<div class="daneTxt">
+									<input type="password" class="inputDane"  value="@Model.Password" asp-for="Password" />
+										@Html.ValidationMessageFor(model => model.Password)
+
+								</div>
+								<div class="daneTxt">
+									<input type="password" class="inputDane" placeholder="889960748" />
+								</div>
+
+									<input type="hidden"asp-for="Nick"  />
+									<input type="hidden"asp-for="Waga"  />
+									<input type="hidden"asp-for="Wzrost"  />
+									<input type="hidden"asp-for="Płeć"  />
+									<input type="hidden"asp-for="RokUrodzenia"  />
+									
+
+
+
+							</div>
+							<div class="btnRej">
+								<input type="submit" value="Edytuj!" />
+							</div>
+							}
+						</div>
+					</div>
+
+				</div>
+
+				<div class="ProfilChange">
+
+					<div class="picture">
+						@if(Model.Płeć == "Kobieta"){
+						<center><img src="../../Images/woman.png" width="60%"> </center>
+						}
+						@if (Model.Płeć == "Mężczyzna")
+						{
+							<center><img src="../../Images/user.png" width="50%"> </center>
+						}
+						@if (Model.Płeć == "")
+						{
+							<center><img src="../../Images/user.svg" width="30%"> </center>
+						}
+						<h1>  @ViewBag.Nick </h1>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
